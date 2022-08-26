@@ -6,4 +6,8 @@ import lombok.Data;
 @Schema(description = "Товар, добавленный в список понравившихся")
 @Data
 public class ClientDeferredProductDto {
+
+    private ClientDto client;
+
+    private AvailableProductDto availableProduct;
 }
