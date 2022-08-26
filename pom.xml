@@ -13,54 +13,11 @@
 
     <artifactId>ebpas-crm-asm</artifactId>
     <version>0.0.2</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <properties>
-
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>ru.stc</groupId>
-            <artifactId>ebpas-common-model</artifactId>
-            <version>0.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.stc</groupId>
-            <artifactId>ebpas-common-data-core</artifactId>
-            <version>0.0.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>1.5.2.Final</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
+    <modules>
+        <module>ebpas-crm-asm-migration</module>
+        <module>ebpas-crm-asm-dependency-management-bom</module>
+        <module>ebpas-crm-asm-core</module>
+    </modules>
 </project>

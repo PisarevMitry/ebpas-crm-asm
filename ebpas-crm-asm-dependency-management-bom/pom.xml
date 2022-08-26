@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <description>Модуль управление версиями зависимостей</description>
+
+    <parent>
+        <groupId>ru.stc</groupId>
+        <artifactId>ebpas-crm-asm</artifactId>
+        <version>0.0.2</version>
+    </parent>
+
+    <artifactId>ebpas-crm-asm-dependency-management-bom</artifactId>
+    <version>0.0.2</version>
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--   Зависимости Spring -->
+
+            <!--   Внутренние зависимости -->
+
+            <!--   Зависимости инструментов работы с БД -->
+
+            <!--   Зависимости инструментов работы с асинхронным роутером -->
+
+            <!--   Зависимости инструментов работы с синхронным роутером -->
+
+            <!--   Зависимости инструментов тестирования -->
+
+            <!--   Зависимости инструментов мониторинга -->
+
+            <!--   Зависимости инструментов рефакторинга -->
+
+            <!--   Зависимости инструментов деплоя -->
+
+            <!--   Прочие зависимости -->
+
+            <!--   Без сортировки -->
+
+
+        </dependencies>
+    </dependencyManagement>
+</project>
