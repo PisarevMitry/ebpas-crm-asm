@@ -1,13 +1,18 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
 
 import java.util.Set;
 
-@Schema(description = "Способ доставки")
 @Data
-public class DeliveryTypeDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Способ доставки")
+public class DeliveryTypeDto implements DatabaseDto {
 
     private Long id;
 

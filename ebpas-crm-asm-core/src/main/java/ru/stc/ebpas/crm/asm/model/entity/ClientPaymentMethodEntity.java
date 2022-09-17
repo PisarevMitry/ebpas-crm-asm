@@ -1,8 +1,13 @@
 package ru.stc.ebpas.crm.asm.model.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.Column;
@@ -18,11 +23,15 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "client_payment_method")
 @EntityListeners(AuditingEntityListener.class)
-public class ClientPaymentMethodEntity extends DefaultSystemAttributes implements Serializable {
+public class ClientPaymentMethodEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
 
     @Id
     @Column(name = "client_payment_method_id")

@@ -1,14 +1,22 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.stc.ebpas.crm.asm.model.constant.AddressDto;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
 
-@Schema(description = "Адрес, сохраненный пользователем")
 @Data
-public class ClientAddressDto extends AddressDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Адрес, сохраненный пользователем")
+public class ClientAddressDto implements DatabaseDto {
 
     private Long id;
 
-    private ClientDto client;
+    private Long client;
+
+    private NsiAddressDto nsiAddress;
+
 }

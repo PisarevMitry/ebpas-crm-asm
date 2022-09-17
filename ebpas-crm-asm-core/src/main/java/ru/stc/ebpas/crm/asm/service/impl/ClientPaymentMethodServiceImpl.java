@@ -2,10 +2,10 @@ package ru.stc.ebpas.crm.asm.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.stc.ebpas.common.data.core.mapper.CommonMapper;
-import ru.stc.ebpas.common.data.core.repository.CommonRepository;
-import ru.stc.ebpas.common.data.core.service.AbstractCommonService;
-import ru.stc.ebpas.crm.asm.mapper.api.ClientPaymentMethodMapper;
+import ru.stc.ebpas.common.data.core.mapper.SimpleModelMapper;
+import ru.stc.ebpas.common.data.core.repository.SimpleModelRepository;
+import ru.stc.ebpas.common.data.core.service.AbstractSimpleModelDefaultService;
+import ru.stc.ebpas.crm.asm.mapper.api.ClientPaymentMethodModelMapper;
 import ru.stc.ebpas.crm.asm.model.dto.ClientPaymentMethodDto;
 import ru.stc.ebpas.crm.asm.model.entity.ClientPaymentMethodEntity;
 import ru.stc.ebpas.crm.asm.repository.ClientPaymentMethodRepository;
@@ -13,21 +13,22 @@ import ru.stc.ebpas.crm.asm.service.api.ClientPaymentMethodService;
 
 @AllArgsConstructor
 @Service
-public class ClientPaymentMethodServiceImpl extends AbstractCommonService<ClientPaymentMethodEntity, ClientPaymentMethodDto>
+public class ClientPaymentMethodServiceImpl
+        extends AbstractSimpleModelDefaultService<ClientPaymentMethodEntity, ClientPaymentMethodDto>
         implements ClientPaymentMethodService {
 
-    private final ClientPaymentMethodMapper ClientPaymentMethodMapper;
+    private final ClientPaymentMethodModelMapper clientPaymentMethodModelMapper;
 
-    private final ClientPaymentMethodRepository ClientPaymentMethodRepository;
+    private final ClientPaymentMethodRepository clientPaymentMethodRepository;
 
     @Override
-    public CommonMapper<ClientPaymentMethodEntity, ClientPaymentMethodDto> getMapper() {
-        return ClientPaymentMethodMapper;
+    public SimpleModelMapper<ClientPaymentMethodEntity, ClientPaymentMethodDto> getMapper() {
+        return clientPaymentMethodModelMapper;
     }
 
     @Override
-    public CommonRepository<ClientPaymentMethodEntity> getRepository() {
-        return ClientPaymentMethodRepository;
+    public SimpleModelRepository<ClientPaymentMethodEntity> getRepository() {
+        return clientPaymentMethodRepository;
     }
 }
 

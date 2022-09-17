@@ -1,13 +1,18 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
 
 import java.util.Set;
 
-@Schema(description = "Основные данные о товаре")
 @Data
-public class CoreProductDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Основные данные о товаре")
+public class CoreProductDto implements DatabaseDto {
 
     private Long id;
 

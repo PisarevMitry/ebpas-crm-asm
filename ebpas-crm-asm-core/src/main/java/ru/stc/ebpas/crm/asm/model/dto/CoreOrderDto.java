@@ -1,12 +1,17 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.stc.ebpas.crm.asm.model.constant.NsiStatus;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
-@Schema(description = "Основные данные о заказе")
 @Data
-public class CoreOrderDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Основные данные о заказе")
+public class CoreOrderDto implements DatabaseDto {
 
     private Long id;
 
@@ -18,9 +23,9 @@ public class CoreOrderDto {
 
     private ReturnDetailsDto returnDetails;
 
-    private ClientDto client;
+    private ClientDto client;//TODO
 
-    private NsiStatus nsiCoreOrderStatus;
+    private NsiStatusDto nsiCoreOrderStatus;
 
     private Boolean requirementOrgDocStatus;
 }

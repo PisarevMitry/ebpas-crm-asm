@@ -1,15 +1,21 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.stc.ebpas.crm.asm.model.constant.MediaDto;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiMediaDto;
 
-@Schema(description = "Фото товара")
 @Data
-public class ProductPhotoDto extends MediaDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Фото товара")
+public class ProductPhotoDto implements DatabaseDto {
 
+    protected NsiMediaDto nsiMedia;
     private Long id;
-
     private ProductDto product;
+
 
 }

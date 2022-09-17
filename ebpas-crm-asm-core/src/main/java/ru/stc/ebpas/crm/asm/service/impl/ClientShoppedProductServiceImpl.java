@@ -2,32 +2,34 @@ package ru.stc.ebpas.crm.asm.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.stc.ebpas.common.data.core.mapper.CommonMapper;
-import ru.stc.ebpas.common.data.core.repository.CommonRepository;
-import ru.stc.ebpas.common.data.core.service.AbstractCommonService;
-import ru.stc.ebpas.crm.asm.mapper.api.ClientShoppedProductMapper;
+import ru.stc.ebpas.common.data.core.mapper.ComplexModelMapper;
+import ru.stc.ebpas.common.data.core.repository.ComplexModelRepository;
+import ru.stc.ebpas.common.data.core.service.AbstractComplexModelDefaultService;
+import ru.stc.ebpas.crm.asm.mapper.api.ClientShoppedProductModelMapper;
 import ru.stc.ebpas.crm.asm.model.dto.ClientShoppedProductDto;
 import ru.stc.ebpas.crm.asm.model.entity.ClientShoppedProductEntity;
+import ru.stc.ebpas.crm.asm.model.entity.ClientShoppedProductKey;
 import ru.stc.ebpas.crm.asm.repository.ClientShoppedProductRepository;
 import ru.stc.ebpas.crm.asm.service.api.ClientShoppedProductService;
 
 @AllArgsConstructor
 @Service
-public class ClientShoppedProductServiceImpl extends AbstractCommonService<ClientShoppedProductEntity, ClientShoppedProductDto>
+public class ClientShoppedProductServiceImpl
+        extends AbstractComplexModelDefaultService<ClientShoppedProductEntity, ClientShoppedProductDto, ClientShoppedProductKey>
         implements ClientShoppedProductService {
 
-    private final ClientShoppedProductMapper ClientShoppedProductMapper;
+    private final ClientShoppedProductModelMapper clientShoppedProductModelMapper;
 
-    private final ClientShoppedProductRepository ClientShoppedProductRepository;
+    private final ClientShoppedProductRepository clientShoppedProductRepository;
 
     @Override
-    public CommonMapper<ClientShoppedProductEntity, ClientShoppedProductDto> getMapper() {
-        return ClientShoppedProductMapper;
+    public ComplexModelMapper<ClientShoppedProductEntity, ClientShoppedProductDto, ClientShoppedProductKey> getMapper() {
+        return clientShoppedProductModelMapper;
     }
 
     @Override
-    public CommonRepository<ClientShoppedProductEntity> getRepository() {
-        return ClientShoppedProductRepository;
+    public ComplexModelRepository<ClientShoppedProductEntity, ClientShoppedProductKey> getRepository() {
+        return clientShoppedProductRepository;
     }
 }
 

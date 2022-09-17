@@ -1,21 +1,26 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.stc.ebpas.crm.asm.model.constant.NsiAddress;
-import ru.stc.ebpas.crm.asm.model.constant.NsiStatus;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
 import java.time.LocalDateTime;
 
-@Schema(description = "Сведения о доставке заказа")
 @Data
-public class DeliveryDetailsDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Сведения о доставке заказа")
+public class DeliveryDetailsDto implements DatabaseDto {
 
     private Long id;
 
     private DeliveryTypeDto deliveryType;
 
-    private NsiAddress nsiAddress;
+    private NsiAddressDto nsiAddress;
 
     private LocalDateTime startDeliveryDttm;
 
@@ -23,7 +28,7 @@ public class DeliveryDetailsDto {
 
     private String deliveryNotes;
 
-    private NsiStatus nsiDeliveryStatus;
+    private NsiStatusDto nsiDeliveryStatus;
 
-    private CoreOrderDto coreOrder;
+    private Long coreOrder;
 }

@@ -2,9 +2,10 @@ package ru.stc.ebpas.crm.asm.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.stc.ebpas.common.data.core.mapper.CommonMapper;
-import ru.stc.ebpas.common.data.core.repository.CommonRepository;
-import ru.stc.ebpas.common.data.core.service.AbstractCommonService;
+import ru.stc.ebpas.common.data.core.mapper.SimpleModelMapper;
+import ru.stc.ebpas.common.data.core.repository.SimpleModelRepository;
+import ru.stc.ebpas.common.data.core.service.AbstractSimpleModelDefaultService;
+import ru.stc.ebpas.crm.asm.mapper.api.CoreSpecialConditionModelMapper;
 import ru.stc.ebpas.crm.asm.model.dto.CoreSpecialConditionDto;
 import ru.stc.ebpas.crm.asm.model.entity.CoreSpecialConditionEntity;
 import ru.stc.ebpas.crm.asm.repository.CoreSpecialConditionRepository;
@@ -12,21 +13,22 @@ import ru.stc.ebpas.crm.asm.service.api.CoreSpecialConditionService;
 
 @AllArgsConstructor
 @Service
-public class CoreSpecialConditionServiceImpl extends AbstractCommonService<CoreSpecialConditionEntity, CoreSpecialConditionDto>
+public class CoreSpecialConditionServiceImpl
+        extends AbstractSimpleModelDefaultService<CoreSpecialConditionEntity, CoreSpecialConditionDto>
         implements CoreSpecialConditionService {
 
-    private final ru.stc.ebpas.crm.asm.mapper.api.CoreSpecialConditionMapper CoreSpecialConditionMapper;
+    private final CoreSpecialConditionModelMapper coreSpecialConditionModelMapper;
 
-    private final CoreSpecialConditionRepository CoreSpecialConditionRepository;
+    private final CoreSpecialConditionRepository coreSpecialConditionRepository;
 
     @Override
-    public CommonMapper<CoreSpecialConditionEntity, CoreSpecialConditionDto> getMapper() {
-        return CoreSpecialConditionMapper;
+    public SimpleModelMapper<CoreSpecialConditionEntity, CoreSpecialConditionDto> getMapper() {
+        return coreSpecialConditionModelMapper;
     }
 
     @Override
-    public CommonRepository<CoreSpecialConditionEntity> getRepository() {
-        return CoreSpecialConditionRepository;
+    public SimpleModelRepository<CoreSpecialConditionEntity> getRepository() {
+        return coreSpecialConditionRepository;
     }
 }
 

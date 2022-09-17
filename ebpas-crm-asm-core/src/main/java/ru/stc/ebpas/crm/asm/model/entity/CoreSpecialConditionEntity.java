@@ -1,8 +1,13 @@
 package ru.stc.ebpas.crm.asm.model.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.Column;
@@ -15,18 +20,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "special_condition_details")
 @EntityListeners(AuditingEntityListener.class)
-public class CoreSpecialConditionEntity extends DefaultSystemAttributes implements Serializable {
+public class CoreSpecialConditionEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
 
     @Id
     @Column(name = "special_condition_details_id")
@@ -59,16 +67,16 @@ public class CoreSpecialConditionEntity extends DefaultSystemAttributes implemen
     @ManyToMany(mappedBy = "specialConditions")
     private Set<AvailableProductEntity> availableProducts;
 
-    @OneToMany(mappedBy = "specialConditions")
+    @ManyToMany(mappedBy = "specialConditions")
     private Set<ProductCategoryEntity> categories;
 
-    @OneToMany(mappedBy = "specialConditions")
+    @ManyToMany(mappedBy = "specialConditions")
     private Set<ClientEntity> clients;
 
-    @OneToMany(mappedBy = "specialConditions")
+    @ManyToMany(mappedBy = "specialConditions")
     private Set<ProductEntity> products;
 
-    @OneToMany(mappedBy = "specialConditions")
+    @ManyToMany(mappedBy = "specialConditions")
     private Set<StoreEntity> stores;
 
     @Override

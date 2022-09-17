@@ -1,8 +1,13 @@
 package ru.stc.ebpas.crm.asm.model.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.CascadeType;
@@ -20,11 +25,15 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "core_order")
 @EntityListeners(AuditingEntityListener.class)
-public class CoreOrderEntity extends DefaultSystemAttributes implements Serializable {
+public class CoreOrderEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
 
     @Id
     @Column(name = "core_order_id")
@@ -36,15 +45,15 @@ public class CoreOrderEntity extends DefaultSystemAttributes implements Serializ
     @JoinColumn(name = "assembly_details_id", referencedColumnName = "assembly_details_id", nullable = false)
     private AssemblyDetailsEntity assemblyDetails;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "payment_details_id", referencedColumnName = "payment_details_id", nullable = false)
     private PaymentDetailsEntity paymentDetails;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_details_id", referencedColumnName = "delivery_details_id", nullable = false)
     private DeliveryDetailsEntity deliveryDetails;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "return_details_id", referencedColumnName = "return_details_id", nullable = false)
     private ReturnDetailsEntity returnDetails;
 

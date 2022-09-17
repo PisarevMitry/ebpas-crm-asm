@@ -1,8 +1,13 @@
 package ru.stc.ebpas.crm.asm.model.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.CascadeType;
@@ -23,11 +28,15 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "client")
 @EntityListeners(AuditingEntityListener.class)
-public class ClientEntity extends DefaultSystemAttributes implements Serializable {
+public class ClientEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
 
     @Id
     @Column(name = "client_id")
@@ -61,7 +70,7 @@ public class ClientEntity extends DefaultSystemAttributes implements Serializabl
             inverseJoinColumns = @JoinColumn(name = "special_condition_id"))
     private Set<CoreSpecialConditionEntity> specialConditions;
 
-    @OneToMany(mappedBy = "clientByClientId")
+    @OneToMany(mappedBy = "client")
     private Set<ProductFeedbackEntity> productFeedbacks;
 
     @Override

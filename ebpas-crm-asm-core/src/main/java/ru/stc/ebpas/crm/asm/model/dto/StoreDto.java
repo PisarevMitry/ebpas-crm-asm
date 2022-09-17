@@ -1,21 +1,25 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import ru.stc.ebpas.crm.asm.model.constant.NsiAddress;
-import ru.stc.ebpas.crm.asm.model.constant.NsiStatus;
+import lombok.NoArgsConstructor;
+import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
 
 import java.util.Set;
 
-@Schema(description = "Торговая площадка")
 @Data
-public class StoreDto {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "Торговая площадка")
+public class StoreDto implements DatabaseDto {
 
     private Long id;
 
     private String name;
 
-    private NsiAddress nsiAddress;
+    private NsiAddressDto nsiAddress;
 
     private Boolean pickupAvailable;
 

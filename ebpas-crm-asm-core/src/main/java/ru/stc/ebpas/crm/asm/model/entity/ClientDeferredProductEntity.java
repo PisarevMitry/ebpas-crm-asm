@@ -1,8 +1,13 @@
 package ru.stc.ebpas.crm.asm.model.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import ru.stc.ebpas.common.core.model.entity.ComplexDatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.EmbeddedId;
@@ -15,11 +20,15 @@ import javax.persistence.MapsId;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "client_deferred_product")
 @EntityListeners(AuditingEntityListener.class)
-public class ClientDeferredProductEntity extends DefaultSystemAttributes implements Serializable {
+public class ClientDeferredProductEntity extends DefaultSystemAttributes implements Serializable, ComplexDatabaseEntity {
 
     @EmbeddedId
     private ClientDeferredProductKey id;
