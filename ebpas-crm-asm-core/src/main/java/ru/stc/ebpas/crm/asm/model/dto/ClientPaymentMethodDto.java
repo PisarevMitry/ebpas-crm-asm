@@ -4,19 +4,19 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Способ оплаты, сохраненый пользователем")
-public class ClientPaymentMethodDto implements DatabaseDto {
+public class ClientPaymentMethodDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private ClientDto client;
+    private Long client;
 
-    private PaymentTypeDto paymentType;
+    private Long paymentType;
 
     private String systemDetailsValue;
 

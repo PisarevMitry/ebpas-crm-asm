@@ -1,4 +1,4 @@
-package ru.stc.ebpas.crm.asm.mapper.impl;
+package ru.stc.ebpas.crm.asm.feign.api;
 
 import org.springframework.stereotype.Service;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiRecordDto;

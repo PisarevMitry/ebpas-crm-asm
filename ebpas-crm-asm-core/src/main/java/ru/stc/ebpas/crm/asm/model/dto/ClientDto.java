@@ -4,7 +4,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
+import ru.stc.ebpas.crm.asm.model.entity.ClientDeferredProductKey;
+import ru.stc.ebpas.crm.asm.model.entity.ClientShoppedProductKey;
 
 import java.util.Set;
 
@@ -12,23 +14,23 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Клиент")
-public class ClientDto implements DatabaseDto {
+public class ClientDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private CoreUserDto coreUser;
+    private Long coreUser;
 
-    private Set<ClientAddressDto> addresses;
+    private Set<Long> addresses;
 
-    private Set<ClientPaymentMethodDto> paymentMethods;
+    private Set<Long> paymentMethods;
 
-    private Set<ClientDeferredProductDto> deferredProducts;
+    private Set<ClientDeferredProductKey> deferredProducts;
 
-    private Set<ClientShoppedProductDto> shoppedProducts;
+    private Set<ClientShoppedProductKey> shoppedProducts;
 
-    private Set<CoreOrderDto> coreOrders;
+    private Set<Long> coreOrders;
 
-    private Set<CoreSpecialConditionDto> specialConditions;
+    private Set<Long> specialConditions;
 
-    private Set<ProductFeedbackDto> productFeedbacks;
+    private Set<Long> productFeedbacks;
 }

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
@@ -12,13 +12,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Бракованный товар")
-public class DefectiveProductDto implements DatabaseDto {
+public class DefectiveProductDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private ReturnDetailsDto returnDetails;
+    private Long returnDetails;
 
-    private ProductDto product;
+    private Long product;
 
     private String defectDescription;
 
@@ -28,5 +28,5 @@ public class DefectiveProductDto implements DatabaseDto {
 
     private String systemDetailsValue;
 
-    private Set<DefectiveProductPhotoDto> defectiveProductPhotos;
+    private Set<Long> defectiveProductPhotos;
 }

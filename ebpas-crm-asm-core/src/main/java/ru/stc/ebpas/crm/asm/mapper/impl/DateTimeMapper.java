@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import static java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME;
 
 @Mapper
-public class LocalDateMapper {
+public class DateTimeMapper {
 
     public String toString(@NotNull LocalDate date) {
         return date.format(ISO_ZONED_DATE_TIME);

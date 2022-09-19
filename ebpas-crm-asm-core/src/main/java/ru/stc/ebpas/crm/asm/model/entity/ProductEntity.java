@@ -6,14 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
+import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,8 +33,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "product")
-@EntityListeners(AuditingEntityListener.class)
-public class ProductEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
+public class ProductEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
     @Column(name = "product_id")
@@ -66,7 +63,7 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     @ManyToMany(
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity = ProductCategoryEntity.class)
-    @JoinTable(name = "client_special_condition", joinColumns = @JoinColumn(name = "product_id"),
+    @JoinTable(name = "product_by_category", joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "product_category_id"))
     private Set<ProductCategoryEntity> categories;
 
@@ -80,7 +77,7 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity = CoreSpecialConditionEntity.class)
     @JoinTable(name = "product_special_condition", joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "special_condition_id"))
+            inverseJoinColumns = @JoinColumn(name = "special_condition_details_id"))
     private Set<CoreSpecialConditionEntity> specialConditions;
 
     @Override

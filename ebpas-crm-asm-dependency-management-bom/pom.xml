@@ -19,28 +19,81 @@
     <dependencyManagement>
         <dependencies>
             <!--   Зависимости Spring -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
 
             <!--   Внутренние зависимости -->
+            <dependency>
+                <groupId>ru.stc</groupId>
+                <artifactId>ebpas-common-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.stc</groupId>
+                <artifactId>ebpas-common-data-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!--   Зависимости инструментов работы с БД -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jpamodelgen</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+
+            <!--   Зависимости инструментов работы с моделями -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
 
             <!--   Зависимости инструментов работы с асинхронным роутером -->
 
             <!--   Зависимости инструментов работы с синхронным роутером -->
 
             <!--   Зависимости инструментов тестирования -->
-
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
             <!--   Зависимости инструментов мониторинга -->
 
             <!--   Зависимости инструментов рефакторинга -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${annotations.version}</version>
+                <scope>compile</scope>
+            </dependency>
 
             <!--   Зависимости инструментов деплоя -->
 
-            <!--   Прочие зависимости -->
-
             <!--   Без сортировки -->
-
-
         </dependencies>
     </dependencyManagement>
 </project>

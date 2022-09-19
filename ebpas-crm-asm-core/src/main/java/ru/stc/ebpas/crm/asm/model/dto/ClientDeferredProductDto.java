@@ -14,12 +14,10 @@ import ru.stc.ebpas.crm.asm.model.entity.ClientDeferredProductKey;
 @Schema(description = "Товар, добавленный в список понравившихся")
 public class ClientDeferredProductDto implements ComplexDatabaseDto {
 
-    private ClientDto client;
-
-    private AvailableProductDto availableProduct;
+    private ClientDeferredProductKey clientDeferredProductKey;
 
     @Override
     public CompositeKey getId() {
-        return new ClientDeferredProductKey(client.getId(), availableProduct.getId());
+        return clientDeferredProductKey;
     }
 }

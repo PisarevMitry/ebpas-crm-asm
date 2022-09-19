@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
+import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +28,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "client_address")
-public class ClientAddressEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
+public class ClientAddressEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
     @Column(name = "client_address_id")

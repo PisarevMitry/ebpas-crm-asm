@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Способ доставки")
-public class DeliveryTypeDto implements DatabaseDto {
+public class DeliveryTypeDto implements SimpleDatabaseDto {
 
     private Long id;
 
@@ -20,5 +20,5 @@ public class DeliveryTypeDto implements DatabaseDto {
 
     private String systemDetails;
 
-    private Set<DeliveryDetailsDto> deliveryDetails;
+    private Set<Long> deliveryDetails;
 }

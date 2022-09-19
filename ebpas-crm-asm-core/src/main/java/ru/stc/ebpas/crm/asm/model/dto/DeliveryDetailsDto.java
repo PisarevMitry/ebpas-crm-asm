@@ -4,8 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
-import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
 import java.time.LocalDateTime;
@@ -14,13 +13,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Сведения о доставке заказа")
-public class DeliveryDetailsDto implements DatabaseDto {
+public class DeliveryDetailsDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private DeliveryTypeDto deliveryType;
+    private Long deliveryType;
 
-    private NsiAddressDto nsiAddress;
+    private Long nsiAddress;
 
     private LocalDateTime startDeliveryDttm;
 

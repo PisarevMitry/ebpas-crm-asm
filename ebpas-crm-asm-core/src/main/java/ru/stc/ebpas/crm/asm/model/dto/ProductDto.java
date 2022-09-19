@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
@@ -12,11 +12,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Товар")
-public class ProductDto implements DatabaseDto {
+public class ProductDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private CoreProductDto coreProduct;
+    private Long coreProduct;
 
     private String description;
 
@@ -24,15 +24,15 @@ public class ProductDto implements DatabaseDto {
 
     private Boolean blocked;
 
-    private Set<AvailableProductDto> availableProducts;
+    private Set<Long> availableProducts;
 
-    private Set<DefectiveProductDto> defectiveProducts;
+    private Set<Long> defectiveProducts;
 
-    private Set<ProductCategoryDto> categories;
+    private Set<Long> categories;
 
-    private Set<ProductFeedbackDto> feedbacks;
+    private Set<Long> feedbacks;
 
-    private Set<ProductPhotoDto> photos;
+    private Set<Long> photos;
 
-    private Set<CoreSpecialConditionDto> specialConditions;
+    private Set<Long> specialConditions;
 }

@@ -4,13 +4,13 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Сведения о пользователе")
-public class UserInfoDto implements DatabaseDto {
+public class UserInfoDto implements SimpleDatabaseDto {
 
     private Long id;
 
@@ -24,5 +24,5 @@ public class UserInfoDto implements DatabaseDto {
 
     private String mail;
 
-    private CoreUserDto coreUser;
+    private Long coreUser;
 }

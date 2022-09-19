@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
@@ -12,15 +12,15 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Корневая сущность пользователя")
-public class CoreUserDto implements DatabaseDto {
+public class CoreUserDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private UserInfoDto userInfo;
+    private Long userInfo;
 
-    private OrganizationInfoDto organizationInfo;
+    private Long organizationInfo;
 
     private Boolean blocked;
 
-    private Set<ClientDto> clients;
+    private Set<Long> clients;
 }

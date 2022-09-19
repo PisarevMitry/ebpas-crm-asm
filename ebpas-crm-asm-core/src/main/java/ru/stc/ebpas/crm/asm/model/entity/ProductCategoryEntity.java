@@ -6,14 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import ru.stc.ebpas.common.core.model.entity.DatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
+import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,8 +33,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "product_category")
-@EntityListeners(AuditingEntityListener.class)
-public class ProductCategoryEntity extends DefaultSystemAttributes implements Serializable, DatabaseEntity {
+public class ProductCategoryEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
     @Column(name = "product_category_id")
@@ -57,7 +54,7 @@ public class ProductCategoryEntity extends DefaultSystemAttributes implements Se
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             targetEntity = CoreSpecialConditionEntity.class)
     @JoinTable(name = "category_special_condition", joinColumns = @JoinColumn(name = "product_category_id"),
-            inverseJoinColumns = @JoinColumn(name = "special_condition_id"))
+            inverseJoinColumns = @JoinColumn(name = "special_condition_details_id"))
     private Set<CoreSpecialConditionEntity> specialConditions;
 
     @ManyToMany(mappedBy = "categories")

@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -13,11 +13,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Основные данные специальных торговых условий")
-public class CoreSpecialConditionDto implements DatabaseDto {
+public class CoreSpecialConditionDto implements SimpleDatabaseDto {
 
     private Long id;
 
-    private SpecialConditionTypeDto specialConditionType;
+    private Long specialConditionType;
 
     private String description;
 
@@ -31,13 +31,13 @@ public class CoreSpecialConditionDto implements DatabaseDto {
 
     private Boolean blocked;
 
-    private Set<AvailableProductDto> availableProducts;
+    private Set<Long> availableProducts;
 
-    private Set<ProductCategoryDto> categories;
+    private Set<Long> categories;
 
-    private Set<ClientDto> clients;
+    private Set<Long> clients;
 
-    private Set<ProductDto> products;
+    private Set<Long> products;
 
-    private Set<StoreDto> stores;
+    private Set<Long> stores;
 }

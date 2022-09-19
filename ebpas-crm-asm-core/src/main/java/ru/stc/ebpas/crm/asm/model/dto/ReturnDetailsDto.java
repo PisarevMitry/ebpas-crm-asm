@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
 import java.util.Set;
@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Сведения о возврате заказа")
-public class ReturnDetailsDto implements DatabaseDto {
+public class ReturnDetailsDto implements SimpleDatabaseDto {
 
     private Long id;
 
@@ -29,5 +29,5 @@ public class ReturnDetailsDto implements DatabaseDto {
 
     private Long coreOrder;
 
-    private Set<DefectiveProductDto> defectiveProducts;
+    private Set<Long> defectiveProducts;
 }

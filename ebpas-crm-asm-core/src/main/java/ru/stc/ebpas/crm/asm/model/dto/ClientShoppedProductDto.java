@@ -14,14 +14,12 @@ import ru.stc.ebpas.crm.asm.model.entity.ClientShoppedProductKey;
 @Schema(description = "Товар, добавленный пользователем в корзину")
 public class ClientShoppedProductDto implements ComplexDatabaseDto {
 
-    private ClientDto client;
-
-    private AvailableProductDto availableProduct;
+    private ClientShoppedProductKey clientShoppedProductKey;
 
     private Integer amountTotal;
 
     @Override
     public CompositeKey getId() {
-        return new ClientShoppedProductKey(client.getId(), availableProduct.getId());
+        return clientShoppedProductKey;
     }
 }

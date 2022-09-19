@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.stc.ebpas.common.core.model.dto.DatabaseDto;
+import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
 
 import java.util.Set;
@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Торговая площадка")
-public class StoreDto implements DatabaseDto {
+public class StoreDto implements SimpleDatabaseDto {
 
     private Long id;
 
@@ -25,7 +25,7 @@ public class StoreDto implements DatabaseDto {
 
     private Boolean available;
 
-    private Set<AvailableProductDto> availableProducts;
+    private Set<Long> availableProducts;
 
-    private Set<CoreSpecialConditionDto> specialConditions;
+    private Set<Long> specialConditions;
 }
