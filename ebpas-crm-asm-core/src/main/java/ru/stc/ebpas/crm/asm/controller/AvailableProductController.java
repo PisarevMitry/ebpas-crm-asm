@@ -13,82 +13,82 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.stc.ebpas.crm.asm.model.dto.AssemblyDetailsDto;
-import ru.stc.ebpas.crm.asm.service.api.AssemblyDetailsService;
+import ru.stc.ebpas.crm.asm.model.dto.AvailableProductDto;
+import ru.stc.ebpas.crm.asm.service.api.AvailableProductService;
 
 import java.util.List;
 
 @Tag(name = "API работы с деталями о заказе")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/assembly-detail")
-public class AssemblyDetailsController {
+@RequestMapping("/available-product")
+public class AvailableProductController {
 
-    private final AssemblyDetailsService assemblyDetailsService;
+    private final AvailableProductService availableProductService;
 
     @Operation(summary = "Получить по идентификатору")
     @GetMapping("/{id}")
-    public AssemblyDetailsDto getById(@PathVariable Long id) {
-        return assemblyDetailsService.getById(id);
+    public AvailableProductDto getById(@PathVariable Long id) {
+        return availableProductService.getById(id);
     }
 
     @Operation(summary = "Получить по списку идентификаторов")
     @GetMapping("/specific-list")
-    public List<AssemblyDetailsDto> getById(@RequestBody List<Long> listId) {
-        return assemblyDetailsService.getById(listId);
+    public List<AvailableProductDto> getById(@RequestBody List<Long> listId) {
+        return availableProductService.getById(listId);
     }
 
     @Operation(summary = "Получить по списку идентификаторов постранично")
     @GetMapping("/specific-list/pageble")
-    public Page<AssemblyDetailsDto> getById(@RequestBody List<Long> listId, Pageable pageable) {
-        return assemblyDetailsService.getById(listId, pageable);
+    public Page<AvailableProductDto> getById(@RequestBody List<Long> listId, Pageable pageable) {
+        return availableProductService.getById(listId, pageable);
     }
 
     @Operation(summary = "Получить все")
     @GetMapping("/all")
-    public List<AssemblyDetailsDto> getAll() {
-        return assemblyDetailsService.getAll();
+    public List<AvailableProductDto> getAll() {
+        return availableProductService.getAll();
     }
 
     @Operation(summary = "Получить все постранично")
     @GetMapping("/all/pageble")
-    public Page<AssemblyDetailsDto> getAll(Pageable pageable) {
-        return assemblyDetailsService.getAll(pageable);
+    public Page<AvailableProductDto> getAll(Pageable pageable) {
+        return availableProductService.getAll(pageable);
     }
 
     @Operation(summary = "Обновить")
     @PutMapping
-    public AssemblyDetailsDto update(@RequestBody AssemblyDetailsDto dto) {
-        return assemblyDetailsService.update(dto);
+    public AvailableProductDto update(@RequestBody AvailableProductDto dto) {
+        return availableProductService.update(dto);
     }
 
     @Operation(summary = "Обновить список")
     @PutMapping("/specific-list")
-    public List<AssemblyDetailsDto> updateList(@RequestBody List<AssemblyDetailsDto> dto) {
-        return assemblyDetailsService.update(dto);
+    public List<AvailableProductDto> update(@RequestBody List<AvailableProductDto> dto) {
+        return availableProductService.update(dto);
     }
 
     @Operation(summary = "Сохранить")
     @PostMapping
-    public AssemblyDetailsDto save(@RequestBody AssemblyDetailsDto dto) {
-        return assemblyDetailsService.save(dto);
+    public AvailableProductDto save(@RequestBody AvailableProductDto dto) {
+        return availableProductService.save(dto);
     }
 
     @Operation(summary = "Сохранить список")
     @PostMapping("/specific-list")
-    public List<AssemblyDetailsDto> save(@RequestBody List<AssemblyDetailsDto> dto) {
-        return assemblyDetailsService.save(dto);
+    public List<AvailableProductDto> save(@RequestBody List<AvailableProductDto> dto) {
+        return availableProductService.save(dto);
     }
 
     @Operation(summary = "Удалить по идентификатору")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        assemblyDetailsService.delete(id);
+        availableProductService.delete(id);
     }
 
     @Operation(summary = "Удалить список по идентификаторам")
     @DeleteMapping("/specific-list")
     public void delete(@RequestBody List<Long> id) {
-        assemblyDetailsService.delete(id);
+        availableProductService.delete(id);
     }
 }

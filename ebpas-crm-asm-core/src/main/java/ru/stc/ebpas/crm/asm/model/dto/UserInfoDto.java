@@ -1,17 +1,15 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Сведения о пользователе")
 public class UserInfoDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     private String firstName;
@@ -24,5 +22,5 @@ public class UserInfoDto implements SimpleDatabaseDto {
 
     private String mail;
 
-    private Long coreUser;
+    private CoreUserDto coreUser;
 }

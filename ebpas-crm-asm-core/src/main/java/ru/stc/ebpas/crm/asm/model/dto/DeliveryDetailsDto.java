@@ -1,25 +1,24 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
+import ru.stc.ebpas.common.core.model.entity.nsi.NsiAddressDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Сведения о доставке заказа")
 public class DeliveryDetailsDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private Long deliveryType;
+    private DeliveryTypeDto deliveryType;
 
-    private Long nsiAddress;
+    private NsiAddressDto nsiAddress;
 
     private LocalDateTime startDeliveryDttm;
 
@@ -29,5 +28,5 @@ public class DeliveryDetailsDto implements SimpleDatabaseDto {
 
     private NsiStatusDto nsiDeliveryStatus;
 
-    private Long coreOrder;
+    private CoreOrderDto coreOrder;
 }

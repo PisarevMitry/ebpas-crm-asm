@@ -1,26 +1,25 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
-import ru.stc.ebpas.crm.asm.model.entity.ClientOrderedProductKey;
 
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Сведения о сборке заказа")
 public class AssemblyDetailsDto implements SimpleDatabaseDto {
 
+    @Schema(description = "Идентификатор")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
+    @Schema(description = "Статус сборки заказа")
     private NsiStatusDto nsiAssemblyStatus;
 
-    private Set<ClientOrderedProductKey> orderedProducts;
+    private Set<ClientOrderedProductDto> orderedProducts;
 
-    private Long coreOrder;
+    private CoreOrderDto coreOrder;
 }

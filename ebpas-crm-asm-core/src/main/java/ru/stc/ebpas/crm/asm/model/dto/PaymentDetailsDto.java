@@ -1,25 +1,23 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiStatusDto;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Сведения об оплате")
 public class PaymentDetailsDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private Long paymentType;
+    private PaymentTypeDto paymentType;
 
     private String systemDetailsValue;
 
     private NsiStatusDto nsiPaymentStatus;
 
-    private Long coreOrder;
+    private CoreOrderDto coreOrder;
 }

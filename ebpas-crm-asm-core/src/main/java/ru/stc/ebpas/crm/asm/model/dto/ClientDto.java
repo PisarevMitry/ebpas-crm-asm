@@ -1,36 +1,32 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
-import ru.stc.ebpas.crm.asm.model.entity.ClientDeferredProductKey;
-import ru.stc.ebpas.crm.asm.model.entity.ClientShoppedProductKey;
 
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Клиент")
 public class ClientDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private Long coreUser;
+    private CoreUserDto coreUser;
 
-    private Set<Long> addresses;
+    private Set<ClientAddressDto> addresses;
 
-    private Set<Long> paymentMethods;
+    private Set<ClientPaymentMethodDto> paymentMethods;
 
-    private Set<ClientDeferredProductKey> deferredProducts;
+    private Set<ClientDeferredProductDto> deferredProducts;
 
-    private Set<ClientShoppedProductKey> shoppedProducts;
+    private Set<ClientShoppedProductDto> shoppedProducts;
 
-    private Set<Long> coreOrders;
+    private Set<CoreOrderDto> coreOrders;
 
-    private Set<Long> specialConditions;
+    private Set<CoreSpecialConditionDto> specialConditions;
 
-    private Set<Long> productFeedbacks;
+    private Set<ProductFeedbackDto> productFeedbacks;
 }

@@ -1,28 +1,26 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Категория товара")
 public class ProductCategoryDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     private String name;
 
-    private Long parentProductCategory;
+    private ProductCategoryDto parentProductCategory;
 
-    private Set<Long> specialConditions;
+    private Set<CoreSpecialConditionDto> specialConditions;
 
-    private Set<Long> products;
+    private Set<ProductDto> products;
 
-    private Set<Long> childProductCategories;
+    private Set<ProductCategoryDto> childProductCategories;
 }

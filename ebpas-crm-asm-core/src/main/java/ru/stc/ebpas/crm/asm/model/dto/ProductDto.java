@@ -1,22 +1,20 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Schema(description = "Товар")
 public class ProductDto implements SimpleDatabaseDto {
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private Long coreProduct;
+    private CoreProductDto coreProduct;
 
     private String description;
 
@@ -24,15 +22,15 @@ public class ProductDto implements SimpleDatabaseDto {
 
     private Boolean blocked;
 
-    private Set<Long> availableProducts;
+    private Set<AvailableProductDto> availableProducts;
 
-    private Set<Long> defectiveProducts;
+    private Set<DefectiveProductDto> defectiveProducts;
 
-    private Set<Long> categories;
+    private Set<ProductCategoryDto> categories;
 
-    private Set<Long> feedbacks;
+    private Set<ProductFeedbackDto> feedbacks;
 
-    private Set<Long> photos;
+    private Set<ProductPhotoDto> photos;
 
-    private Set<Long> specialConditions;
+    private Set<CoreSpecialConditionDto> specialConditions;
 }
