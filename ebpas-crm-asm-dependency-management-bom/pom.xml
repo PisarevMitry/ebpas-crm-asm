@@ -59,9 +59,24 @@
                 <version>${hibernate.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-envers</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
 
             <!--   Зависимости инструментов работы с моделями -->
@@ -142,6 +157,11 @@
             </dependency>
 
             <!--   Зависимости инструментов деплоя -->
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
 
             <!--   Без сортировки -->
         </dependencies>

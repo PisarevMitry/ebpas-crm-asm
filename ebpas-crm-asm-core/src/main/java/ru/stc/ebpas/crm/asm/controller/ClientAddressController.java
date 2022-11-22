@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.ClientAddressService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с адресами клиентов")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/client-address")

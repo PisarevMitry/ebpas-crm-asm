@@ -16,7 +16,7 @@ public class DeliveryTypeDto implements SimpleDatabaseDto {
 
     private String deliveryName;
 
-    private String systemDetails;
+    private Object systemDetails;
 
     private Set<DeliveryDetailsDto> deliveryDetails;
 }

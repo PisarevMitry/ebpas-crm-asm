@@ -16,4 +16,82 @@
     <artifactId>ebpas-crm-asm-migration</artifactId>
     <version>0.0.2</version>
     <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.9.1</version>
+                <configuration>
+                    <changelogSchemaName>${profile.changelogSchemaName}</changelogSchemaName>
+                    <propertyFile>${profile.propertyFile}</propertyFile>
+                    <changeLogFile>${profile.changeLogFile}</changeLogFile>
+                    <dataDir>${profile.dataDir}</dataDir>
+                    <!-- log  -->
+                    <verbose>${profile.verbose}</verbose>
+                    <logging>${profile.logging}</logging>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.propertyFile>src/main/resources/db/local/liquibase.properties</profile.propertyFile>
+                <profile.changeLogFile>src/main/resources/db/master.xml</profile.changeLogFile>
+                <profile.dataDir>src/main/resources/db/local/data</profile.dataDir>
+                <profile.verbose>false</profile.verbose>
+                <profile.logging>debug</profile.logging>
+                <profile.changelogSchemaName>crm_asm</profile.changelogSchemaName>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profile.propertyFile>src/main/resources/db/dev/liquibase.properties</profile.propertyFile>
+                <profile.changeLogFile>src/main/resources/db/master.xml</profile.changeLogFile>
+                <profile.dataDir>src/main/resources/db/dev/data</profile.dataDir>
+                <profile.verbose>false</profile.verbose>
+                <profile.logging>debug</profile.logging>
+                <profile.changelogSchemaName>crm_asm</profile.changelogSchemaName>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>uat</id>
+            <properties>
+                <profile.propertyFile>src/main/resources/db/uat/liquibase.properties</profile.propertyFile>
+                <profile.changeLogFile>src/main/resources/db/master.xml</profile.changeLogFile>
+                <profile.dataDir>src/main/resources/db/uat/data</profile.dataDir>
+                <profile.verbose>false</profile.verbose>
+                <profile.logging>debug</profile.logging>
+                <profile.changelogSchemaName>crm_asm</profile.changelogSchemaName>
+            </properties>
+        </profile>
+    </profiles>
 </project>

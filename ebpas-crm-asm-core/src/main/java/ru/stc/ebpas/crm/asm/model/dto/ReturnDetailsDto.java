@@ -21,9 +21,7 @@ public class ReturnDetailsDto implements SimpleDatabaseDto {
 
     private NsiStatusDto nsiReturnRequirement;
 
-    private String systemDetails;
-
-    private String systemDetailsValue;
+    private Object systemDetails;
 
     private CoreOrderDto coreOrder;
 

@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.FeedbackPhotoService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API сущности 1")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/feedback-photo")

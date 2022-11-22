@@ -22,9 +22,7 @@ public class DefectiveProductDto implements SimpleDatabaseDto {
 
     private Boolean receivingStatus;
 
-    private String systemDetails;
-
-    private String systemDetailsValue;
+    private Object systemDetails;
 
     private Set<DefectiveProductPhotoDto> defectiveProductPhotos;
 }

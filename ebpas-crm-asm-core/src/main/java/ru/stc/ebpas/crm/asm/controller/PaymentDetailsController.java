@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.PaymentDetailsService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API модели 3")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/payment-details")

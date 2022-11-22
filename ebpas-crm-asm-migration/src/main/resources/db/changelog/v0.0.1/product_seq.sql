@@ -1,0 +1,1 @@
+CREATE SEQUENCE IF NOT EXISTS crm_asm.product_seq;

@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "core_product")
+@EntityListeners(AuditingEntityListener.class)
 public class CoreProductEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
@@ -41,8 +44,9 @@ public class CoreProductEntity extends DefaultSystemAttributes implements Serial
     @Column(name = "core_description")
     private String coreDescription;
 
-    @Column(name = "core_option")
-    private String options;
+//    @Column(name = "core_option")
+//    @JdbcTypeCode(SqlTypes.JSON)
+//    private ObjectNode options;
 
     @OneToMany(mappedBy = "coreProduct")
     private Set<ProductEntity> products;

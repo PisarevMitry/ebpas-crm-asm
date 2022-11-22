@@ -23,7 +23,7 @@ public class CoreSpecialConditionDto implements SimpleDatabaseDto {
 
     private LocalDateTime endConditionDttm;
 
-    private String systemDetailsValue;
+    private Object systemDetails;
 
     private Boolean displayed;
 

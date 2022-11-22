@@ -2,6 +2,7 @@ package ru.stc.ebpas.crm.asm.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
@@ -31,6 +32,7 @@ import static ru.stc.ebpas.crm.asm.controller.provision.maker.dto.AssemblyDetail
 
 
 @WebMvcTest(controllers = AssemblyDetailsController.class)
+@Disabled
 class AssemblyDetailsControllerTest {
 
     @Autowired

@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +30,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "client_payment_method")
+@EntityListeners(AuditingEntityListener.class)
 public class ClientPaymentMethodEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
@@ -44,8 +47,8 @@ public class ClientPaymentMethodEntity extends DefaultSystemAttributes implement
     @JoinColumn(name = "payment_method_id", referencedColumnName = "payment_method_id", nullable = false)
     private PaymentType paymentType;
 
-    @Column(name = "system_details_value")
-    private String systemDetailsValue;
+//    @Column(name = "system_details")
+//    private Object systemDetails;
 
     @Column(name = "display_status")
     private Boolean displayed;

@@ -1,0 +1,1 @@
+DROP SEQUENCE IF EXISTS product_seq;

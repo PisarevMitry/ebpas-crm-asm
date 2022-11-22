@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.DeliveryDetailsService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с деталями доставки")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/delivery-details")

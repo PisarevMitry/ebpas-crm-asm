@@ -16,7 +16,7 @@ public class PaymentTypeDto implements SimpleDatabaseDto {
 
     private String payment_name;
 
-    private String systemDetails;
+    private Object systemDetails;
 
     private Set<ClientPaymentMethodDto> clientPaymentMethods;
 

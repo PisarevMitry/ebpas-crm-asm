@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.ClientPaymentMethodService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы со способами оплаты клиентов")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/client-payment-method")

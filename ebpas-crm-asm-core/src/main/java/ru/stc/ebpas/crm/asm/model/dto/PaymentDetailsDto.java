@@ -15,7 +15,7 @@ public class PaymentDetailsDto implements SimpleDatabaseDto {
 
     private PaymentTypeDto paymentType;
 
-    private String systemDetailsValue;
+    private Object systemDetails;
 
     private NsiStatusDto nsiPaymentStatus;
 

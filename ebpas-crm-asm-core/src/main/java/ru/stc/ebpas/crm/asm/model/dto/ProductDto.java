@@ -1,10 +1,12 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
 
+import javax.persistence.Column;
 import java.util.Set;
 
 @Data
@@ -14,11 +16,13 @@ public class ProductDto implements SimpleDatabaseDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
+    private String nomenclature;
+
     private CoreProductDto coreProduct;
 
     private String description;
 
-    private String options;
+    private ObjectNode options;
 
     private Boolean blocked;
 

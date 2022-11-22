@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.ComplexDatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,6 +27,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "client_deferred_product")
+@EntityListeners(AuditingEntityListener.class)
 public class ClientDeferredProductEntity extends DefaultSystemAttributes implements Serializable, ComplexDatabaseEntity {
 
     @EmbeddedId

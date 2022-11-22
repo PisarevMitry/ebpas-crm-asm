@@ -1,6 +1,7 @@
 package ru.stc.ebpas.crm.asm.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import ru.stc.ebpas.common.core.model.dto.SimpleDatabaseDto;
@@ -18,7 +19,7 @@ public class CoreProductDto implements SimpleDatabaseDto {
 
     private String coreDescription;
 
-    private String options;
+    private ObjectNode options;
 
     private Set<ProductDto> products;
 }

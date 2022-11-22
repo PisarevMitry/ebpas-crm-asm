@@ -16,7 +16,7 @@ public class SpecialConditionTypeDto implements SimpleDatabaseDto {
 
     private String specialConditionName;
 
-    private String systemDetails;
+    private Object systemDetails;
 
     private Set<CoreSpecialConditionDto> specialConditionDetails;
 }

@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.ReturnDetailsService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API модели 8")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/return-details")

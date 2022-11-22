@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.StoreService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API модели 10")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/store")

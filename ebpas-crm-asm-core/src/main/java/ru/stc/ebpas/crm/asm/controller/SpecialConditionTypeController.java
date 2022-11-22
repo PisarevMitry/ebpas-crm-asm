@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.SpecialConditionTypeService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API модели 9")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/special-condition-type")

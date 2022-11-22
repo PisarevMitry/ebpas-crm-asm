@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +30,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "feedback_photo")
+@EntityListeners(AuditingEntityListener.class)
 public class FeedbackPhotoEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id

@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.AvailableProductService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с доступными товарами")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/available-product")

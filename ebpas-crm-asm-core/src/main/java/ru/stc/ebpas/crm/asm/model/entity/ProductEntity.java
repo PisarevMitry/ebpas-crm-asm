@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +35,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "product")
+@EntityListeners(AuditingEntityListener.class)
 public class ProductEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
@@ -41,6 +44,9 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     @SequenceGenerator(name = "product_seq_gen", sequenceName = "product_seq", allocationSize = 1)
     private Long id;
 
+    @Column(name = "product_nomenclature")
+    private String nomenclature;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "core_product_id", referencedColumnName = "core_product_id", nullable = false)
     private CoreProductEntity coreProduct;
@@ -48,8 +54,9 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     @Column(name = "description")
     private String description;
 
-    @Column(name = "option")
-    private String options;
+//    @Column(name = "option")
+//    @JdbcTypeCode(SqlTypes.JSON)
+//    private Map<String, String> options;
 
     @Column(name = "blocked_status")
     private Boolean blocked;

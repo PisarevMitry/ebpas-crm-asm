@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.ClientShoppedProductService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с купленными товарами клиентов")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/client-shopped-product")

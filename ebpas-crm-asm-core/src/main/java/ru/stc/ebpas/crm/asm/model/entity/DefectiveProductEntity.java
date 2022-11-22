@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +32,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "defective_product")
+@EntityListeners(AuditingEntityListener.class)
 public class DefectiveProductEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
@@ -52,11 +55,8 @@ public class DefectiveProductEntity extends DefaultSystemAttributes implements S
     @Column(name = "receiving_status")
     private Boolean receivingStatus;
 
-    @Column(name = "system_details")
-    private String systemDetails;
-
-    @Column(name = "system_details_value")
-    private String systemDetailsValue;
+//    @Column(name = "system_details")
+//    private Object systemDetails;
 
     @OneToMany(mappedBy = "defectiveProduct")
     private Set<DefectiveProductPhotoEntity> defectiveProductPhotos;

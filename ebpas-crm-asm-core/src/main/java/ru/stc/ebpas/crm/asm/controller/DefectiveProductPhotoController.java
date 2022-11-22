@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.DefectiveProductPhotoService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с фото бракованных товаров")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/defective-product-photo")

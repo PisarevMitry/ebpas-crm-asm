@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS get_pk_column_name(TEXT, TEXT);

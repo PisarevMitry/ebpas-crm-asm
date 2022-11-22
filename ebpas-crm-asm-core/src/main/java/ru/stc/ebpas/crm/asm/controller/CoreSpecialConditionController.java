@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.CoreSpecialConditionService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы со специальными условиями торговли")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/core-special-condition")

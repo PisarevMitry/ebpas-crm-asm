@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.OrganizationInfoService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API сущности 2")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/organization-info")

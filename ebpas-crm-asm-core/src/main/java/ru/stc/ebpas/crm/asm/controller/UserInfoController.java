@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.UserInfoService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API модели 11")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user-info")

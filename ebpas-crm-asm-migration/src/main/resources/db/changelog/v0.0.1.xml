@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="08.10.2022 9:00:00" author="dpisarev">
+        <sqlFile path="v0.0.1/product_seq.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/product_seq_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 10:00:00" author="dpisarev">
+        <createProcedure path="v0.0.1/product_nomenclature_seq_gen.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/product_nomenclature_seq_gen_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 11:00:00" author="dpisarev">
+        <sqlFile path="v0.0.1/init.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/init_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 11:30:00" author="dpisarev">
+        <createProcedure path="v0.0.1/get_pk_column_name.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/get_pk_column_name_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 12:00:00" author="dpisarev">
+        <createProcedure path="v0.0.1/handle_action.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/handle_action_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 13:00:00" author="dpisarev">
+        <createProcedure path="v0.0.1/handle_action_on_tables.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/handle_action_on_tables_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="08.10.2022 14:00:00" author="dpisarev">
+        <createProcedure path="v0.0.1/remove_deleted_model.sql" relativeToChangelogFile="true"/>
+        <rollback>
+            <sqlFile path="v0.0.1/rollback/remove_deleted_model_rollback.sql" relativeToChangelogFile="true"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

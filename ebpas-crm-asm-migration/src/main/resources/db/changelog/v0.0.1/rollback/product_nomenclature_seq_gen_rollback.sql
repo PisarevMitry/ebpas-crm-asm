@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS product_nomenclature_seq_gen();

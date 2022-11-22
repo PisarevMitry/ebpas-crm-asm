@@ -1,13 +1,13 @@
 package ru.stc.ebpas.crm.asm.mapper.impl;
 
 import org.jetbrains.annotations.NotNull;
-import org.mapstruct.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 import static java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME;
 
-@Mapper
+@Component
 public class DateTimeMapper {
 
     public String toString(@NotNull LocalDate date) {

@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.asm.service.api.CoreOrderService;
 
 import java.util.List;
 
-@Tag(name = "API работы с деталями о заказе")
+@Tag(name = "API работы с заказом")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/core-order")
