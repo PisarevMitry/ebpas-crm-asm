@@ -1,0 +1,29 @@
+logging:
+    level:
+        ru.stc.ebpas: DEBUG
+
+    pattern:
+        console: '%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}
+            %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint}
+            %clr([%15.15t] [processId-%X{processId}]){faint} %clr(%-40.40logger{39}){cyan}
+            %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'
+server:
+    port: 8081
+spring:
+    datasource:
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/ebpas?currentSchema=crm_asm
+        username: postgres
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: validate
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true
+    main:
+        allow-circular-references: true
+
+springdoc:
+    show-actuator: true

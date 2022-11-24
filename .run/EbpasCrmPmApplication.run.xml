@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="EbpasCrmPmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" />
+    <module name="ebpas-crm-pm" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ru.stc.ebpas.crm.pm.EbpasCrmPmApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

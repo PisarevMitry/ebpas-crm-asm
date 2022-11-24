@@ -11,14 +11,18 @@
         <version>0.0.2</version>
     </parent>
 
-    <artifactId>ebpas-crm-asm</artifactId>
+    <artifactId>ebpas-crm</artifactId>
     <version>0.0.2</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>ebpas-crm-asm-migration</module>
-        <module>ebpas-crm-asm-dependency-management-bom</module>
-        <module>ebpas-crm-asm-core</module>
+        <module>ebpas-crm-migration</module>
+        <module>ebpas-crm-dependency-management-bom</module>
+        <module>ebpas-crm-core</module>
+        <module>ebpas-crm-cm</module>
+        <module>ebpas-crm-scm</module>
+        <module>ebpas-crm-om</module>
+        <module>ebpas-crm-pm</module>
     </modules>
 
     <properties>
@@ -39,22 +43,29 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>remote-deploy</id>
-            <modules>
-                <module>ebpas-crm-asm-dependency-management-bom</module>
-                <module>ebpas-crm-asm-core</module>
-<!--                <module>ebpas-crm-asm-migration</module>-->
-            </modules>
-        </profile>
-        <profile>
-            <id>local-deploy</id>
-            <modules>
-                <module>ebpas-crm-asm-dependency-management-bom</module>
-                <module>ebpas-crm-asm-core</module>
-                <module>ebpas-crm-asm-migration</module>
-            </modules>
-        </profile>
-    </profiles>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>remote-deploy</id>-->
+<!--            <modules>-->
+<!--                <module>ebpas-crm-dependency-management-bom</module>-->
+<!--                <module>ebpas-crm-core</module>-->
+<!--                <module>ebpas-crm-cm</module>-->
+<!--                <module>ebpas-crm-csm</module>-->
+<!--                <module>ebpas-crm-om</module>-->
+<!--                <module>ebpas-crm-pm</module>-->
+<!--            </modules>-->
+<!--        </profile>-->
+<!--        <profile>-->
+<!--            <id>local-deploy</id>-->
+<!--            <modules>-->
+<!--                <module>ebpas-crm-migration</module>-->
+<!--                <module>ebpas-crm-dependency-management-bom</module>-->
+<!--                <module>ebpas-crm-core</module>-->
+<!--                <module>ebpas-crm-cm</module>-->
+<!--                <module>ebpas-crm-csm</module>-->
+<!--                <module>ebpas-crm-om</module>-->
+<!--                <module>ebpas-crm-pm</module>-->
+<!--            </modules>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 </project>
