@@ -21,5 +21,5 @@ public class CoreProductDto implements SimpleDatabaseDto {
 
     private ObjectNode options;
 
-    private Set<ProductDto> products;
+    private Set<Long> products;
 }

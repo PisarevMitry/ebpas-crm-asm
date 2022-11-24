@@ -6,17 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -54,7 +56,9 @@ public class StoreEntity extends DefaultSystemAttributes implements Serializable
     @OneToMany(mappedBy = "store")
     private Set<AvailableProductEntity> availableProducts;
 
-    @Formula(value = "select ssc.special_condition_details_id from store_special_condition ssc where ssc.store_id = id")
+    @ElementCollection
+    @CollectionTable(name = "store_special_condition", joinColumns = @JoinColumn(name = "store_id"))
+    @Column(name = "special_condition_details_id")
     private Set<Long> specialConditions;
 
     @Override

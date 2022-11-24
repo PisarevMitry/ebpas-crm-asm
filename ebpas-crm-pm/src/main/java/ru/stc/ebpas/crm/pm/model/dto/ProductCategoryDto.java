@@ -20,7 +20,7 @@ public class ProductCategoryDto implements SimpleDatabaseDto {
 
     private Set<Long> specialConditions;
 
-    private Set<ProductDto> products;
+    private Set<Long> products;
 
     private Set<ProductCategoryDto> childProductCategories;
 }

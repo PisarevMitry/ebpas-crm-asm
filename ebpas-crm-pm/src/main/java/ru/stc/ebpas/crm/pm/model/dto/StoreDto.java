@@ -23,7 +23,7 @@ public class StoreDto implements SimpleDatabaseDto {
 
     private Boolean available;
 
-    private Set<AvailableProductDto> availableProducts;
+    private Set<Long> availableProducts;
 
     private Set<Long> specialConditions;
 }

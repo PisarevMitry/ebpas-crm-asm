@@ -14,7 +14,7 @@ public class AvailableProductDto implements SimpleDatabaseDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private ProductDto product;
+    private Long product;
 
     private StoreDto store;
 

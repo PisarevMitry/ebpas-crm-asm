@@ -10,9 +10,10 @@ import ru.stc.ebpas.common.core.model.entity.nsi.NsiMediaDto;
 @Schema(description = "Фото товара")
 public class ProductPhotoDto implements SimpleDatabaseDto {
 
-    protected NsiMediaDto nsiMedia;
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private ProductDto product;
+    private NsiMediaDto nsiMedia;
+
+    private Long product;
 }

@@ -6,12 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -52,7 +53,9 @@ public class ProductCategoryEntity extends DefaultSystemAttributes implements Se
     @JoinColumn(name = "parent_id", referencedColumnName = "product_category_id")
     private ProductCategoryEntity parentProductCategory;
 
-    @Formula(value = "select csc.special_condition_id from category_special_condition csc where csc.product_category_id = id")
+    @ElementCollection
+    @CollectionTable(name = "category_special_condition", joinColumns = @JoinColumn(name = "product_category_id"))
+    @Column(name = "special_condition_details_id")
     private Set<Long> specialConditions;
 
     @ManyToMany(mappedBy = "categories")

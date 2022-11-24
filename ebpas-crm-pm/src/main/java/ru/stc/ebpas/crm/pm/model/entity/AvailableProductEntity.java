@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
-import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -20,10 +20,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -62,16 +59,26 @@ public class AvailableProductEntity extends DefaultSystemAttributes implements S
     @Column(name = "price_unit")
     private Long priceUnit;
 
-    @Formula(value = "select apsc.special_condition_details_id from available_product_special_condition apsc where apsc.available_product_id = id")
+    @ElementCollection
+    @CollectionTable(name = "available_product_special_condition", joinColumns = @JoinColumn(name = "available_product_id"))
+    @Column(name = "special_condition_details_id")
     private Set<Long> specialConditions;
 
-    @Formula(value = "select cdp.client_id from client_deferred_product cdp where cdp.available_product_id = id")
+    @ElementCollection
+    @CollectionTable(name = "client_deferred_product", joinColumns = @JoinColumn(name = "available_product_id"))
+    @Column(name = "client_id")
     private Set<Long> clientDeferredProducts;
 
-    @Formula(value = "select cop.client_id from client_ordered_product cop where cop.available_product_id = id")
+    //ToDo
+//    @Formula(value = "select c.client_id from client c left join client_deferred_product cdp on c.client_id = cdp.client_id where cdp.available_product_id = id")
+    @ElementCollection
+    @CollectionTable(name = "client_deferred_product", joinColumns = @JoinColumn(name = "available_product_id"))
+    @Column(name = "client_id")
     private Set<Long> clientOrderedProducts;
 
-    @Formula(value = "select csp.client_id from client_shopped_product csp where csp.available_product_id = id")
+    @ElementCollection
+    @CollectionTable(name = "client_shopped_product", joinColumns = @JoinColumn(name = "available_product_id"))
+    @Column(name = "client_id")
     private Set<Long> clientShoppedProducts;
 
     @Override

@@ -16,6 +16,8 @@ WHERE store_id = 8;
 INSERT INTO crm_asm.assembly_details (nsi_assembly_status)
 VALUES (2342);
 
+
+
 UPDATE crm_asm.assembly_details
 SET nsi_assembly_status=2323
 WHERE assembly_details_id = 69;
@@ -43,3 +45,7 @@ INSERT INTO product ("blocked_status", "description", "core_product_id")
 VALUES (FALSE, NULL, 43);
 
 
+select specialcon0_.special_condition_details_id as special_1_16_0_,
+       specialcon0_.special_conditions           as special_2_16_0_
+from store_special_condition specialcon0_
+where specialcon0_.special_condition_details_id=?
