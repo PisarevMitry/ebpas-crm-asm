@@ -8,12 +8,12 @@
 
     <parent>
         <groupId>ru.stc</groupId>
-        <artifactId>ebpas-crm-asm-dependency-management-bom</artifactId>
+        <artifactId>ebpas-crm-dependency-management-bom</artifactId>
         <version>0.0.2</version>
-        <relativePath>../ebpas-crm-asm-dependency-management-bom/pom.xml</relativePath>
+        <relativePath>../ebpas-crm-dependency-management-bom/pom.xml</relativePath>
     </parent>
 
-    <artifactId>ebpas-crm-asm-migration</artifactId>
+    <artifactId>ebpas-crm-migration</artifactId>
     <version>0.0.2</version>
     <packaging>pom</packaging>
 

@@ -14,5 +14,5 @@ public class OrganizationInfoDto implements SimpleDatabaseDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private Set<CoreUserDto> coreUsers;
+    private Set<Long> coreUsers;
 }

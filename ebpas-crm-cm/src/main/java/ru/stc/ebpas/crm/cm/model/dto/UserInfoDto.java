@@ -22,5 +22,5 @@ public class UserInfoDto implements SimpleDatabaseDto {
 
     private String mail;
 
-    private CoreUserDto coreUser;
+    private Long coreUser;
 }

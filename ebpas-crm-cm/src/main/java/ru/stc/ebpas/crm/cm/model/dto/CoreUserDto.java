@@ -20,5 +20,5 @@ public class CoreUserDto implements SimpleDatabaseDto {
 
     private Boolean blocked;
 
-    private Set<ClientDto> clients;
+    private Set<Long> clients;
 }

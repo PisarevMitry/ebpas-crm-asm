@@ -10,7 +10,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -18,7 +20,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -64,15 +65,29 @@ public class CoreSpecialConditionEntity extends DefaultSystemAttributes implemen
     @Column(name = "blocked_status")
     private Boolean blocked;
 
-    //ToDo
+    @ElementCollection
+    @CollectionTable(name = "available_product_special_condition", joinColumns = @JoinColumn(name = "special_condition_details_id"))
+    @Column(name = "available_product_id")
     private Set<Long> availableProducts;
 
+    @ElementCollection
+    @CollectionTable(name = "category_special_condition", joinColumns = @JoinColumn(name = "special_condition_details_id"))
+    @Column(name = "product_category_id")
     private Set<Long> categories;
 
+    @ElementCollection
+    @CollectionTable(name = "client_special_condition", joinColumns = @JoinColumn(name = "special_condition_id"))
+    @Column(name = "client_id")
     private Set<Long> clients;
 
+    @ElementCollection
+    @CollectionTable(name = "product_special_condition", joinColumns = @JoinColumn(name = "special_condition_details_id"))
+    @Column(name = "product_id")
     private Set<Long> products;
 
+    @ElementCollection
+    @CollectionTable(name = "store_special_condition", joinColumns = @JoinColumn(name = "special_condition_details_id"))
+    @Column(name = "store_id")
     private Set<Long> stores;
 
     @Override
