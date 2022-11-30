@@ -27,3 +27,16 @@ spring:
 
 springdoc:
     show-actuator: true
+
+
+kafka:
+    bootstrapServers: localhost:9092
+    consumer:
+        groupId: ebpas-crm-pm-consumer-group
+        topicName:
+            wmCrmSaveProduct: wmCrmSaveProduct
+    maxRetries: 3
+    processDefinition:
+        concurrency: 3
+    topicNames:
+        mainRouterTopic: main_router_topic

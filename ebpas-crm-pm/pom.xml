@@ -49,6 +49,10 @@
             <groupId>ru.stc</groupId>
             <artifactId>ebpas-common-data-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ru.stc</groupId>
+            <artifactId>ebpas-common-api-internal-core</artifactId>
+        </dependency>
 
         <!--   Зависимости инструментов работы с БД -->
         <dependency>

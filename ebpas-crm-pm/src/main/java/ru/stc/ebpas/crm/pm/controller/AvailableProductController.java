@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.pm.service.api.AvailableProductService;
 
 import java.util.List;
 
-@Tag(name = "API работы с доступными товарами")
+@Tag(name = "API для взаимодействия с доступными товарами")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/available-product")
@@ -91,4 +91,7 @@ public class AvailableProductController {
     public void delete(@RequestBody List<Long> id) {
         availableProductService.delete(id);
     }
+
+
+
 }

@@ -18,7 +18,7 @@ import ru.stc.ebpas.crm.pm.service.api.ProductCategoryService;
 
 import java.util.List;
 
-@Tag(name = "API модели 5")
+@Tag(name = "API для взаимодействия с категориями")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/product-category")
@@ -26,69 +26,40 @@ public class ProductCategoryController {
 
     private final ProductCategoryService productCategoryService;
 
-    @Operation(summary = "Получить по идентификатору")
+
+    @Operation(summary = "Получить категорию по идентификатору")
     @GetMapping("/{id}")
     public ProductCategoryDto getById(@PathVariable Long id) {
         return productCategoryService.getById(id);
     }
 
-    @Operation(summary = "Получить по списку идентификаторов")
+    @Operation(summary = "Получить список категорий по списку идентификаторов")
     @GetMapping("/specific-list")
     public List<ProductCategoryDto> getById(@RequestBody List<Long> listId) {
         return productCategoryService.getById(listId);
     }
 
-    @Operation(summary = "Получить по списку идентификаторов постранично")
-    @GetMapping("/specific-list/pageble")
-    public Page<ProductCategoryDto> getById(@RequestBody List<Long> listId, Pageable pageable) {
-        return productCategoryService.getById(listId, pageable);
-    }
-
-    @Operation(summary = "Получить все")
-    @GetMapping("/all")
-    public List<ProductCategoryDto> getAll() {
-        return productCategoryService.getAll();
-    }
-
-    @Operation(summary = "Получить все постранично")
+    @Operation(summary = "Получить все категории постранично")
     @GetMapping("/all/pageble")
     public Page<ProductCategoryDto> getAll(Pageable pageable) {
         return productCategoryService.getAll(pageable);
     }
 
-    @Operation(summary = "Обновить")
+    @Operation(summary = "Обновить категорию")
     @PutMapping
     public ProductCategoryDto update(@RequestBody ProductCategoryDto dto) {
         return productCategoryService.update(dto);
     }
 
-    @Operation(summary = "Обновить список")
-    @PutMapping("/specific-list")
-    public List<ProductCategoryDto> update(@RequestBody List<ProductCategoryDto> dto) {
-        return productCategoryService.update(dto);
-    }
-
-    @Operation(summary = "Сохранить")
+    @Operation(summary = "Сохранить новую категорию")
     @PostMapping
     public ProductCategoryDto save(@RequestBody ProductCategoryDto dto) {
         return productCategoryService.save(dto);
     }
 
-    @Operation(summary = "Сохранить список")
-    @PostMapping("/specific-list")
-    public List<ProductCategoryDto> save(@RequestBody List<ProductCategoryDto> dto) {
-        return productCategoryService.save(dto);
-    }
-
-    @Operation(summary = "Удалить по идентификатору")
+    @Operation(summary = "Удалить категорию по идентификатору")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        productCategoryService.delete(id);
-    }
-
-    @Operation(summary = "Удалить список по идентификаторам")
-    @DeleteMapping("/specific-list")
-    public void delete(@RequestBody List<Long> id) {
         productCategoryService.delete(id);
     }
 }
