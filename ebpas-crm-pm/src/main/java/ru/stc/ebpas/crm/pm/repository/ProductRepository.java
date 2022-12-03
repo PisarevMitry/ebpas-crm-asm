@@ -7,5 +7,6 @@ import ru.stc.ebpas.crm.pm.model.entity.ProductEntity;
 @Repository
 public interface ProductRepository extends SimpleModelRepository<ProductEntity> {
 
+    ProductEntity findByNomenclature(String productNomenclature);
 }
 

@@ -10,7 +10,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.ComplexDatabaseEntity;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -38,9 +37,6 @@ public class ClientDeferredProductEntity extends DefaultSystemAttributes impleme
     @MapsId("clientId")
     @JoinColumn(name = "client_id", referencedColumnName = "client_id", nullable = false)
     private ClientEntity client;
-
-    @Column(name = "available_product_id")
-    private Long availableProduct;
 
     @Override
     public boolean equals(Object o) {

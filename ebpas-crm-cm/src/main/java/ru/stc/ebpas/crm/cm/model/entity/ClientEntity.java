@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Formula;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import ru.stc.ebpas.common.core.model.entity.DefaultSystemAttributes;
 import ru.stc.ebpas.common.core.model.entity.SimpleDatabaseEntity;
@@ -57,15 +56,15 @@ public class ClientEntity extends DefaultSystemAttributes implements Serializabl
 
     @OneToMany(mappedBy = "client")
     private Set<ClientShoppedProductEntity> shoppedProducts;
-
-    @Formula(value = "select co.core_order_id from core_order co where co.client_id = id")
-    private Set<Long> coreOrders;
-
-    @Formula(value = "select csc.special_condition_id from client_special_condition csc where csc.client_id = id")
-    private Set<Long> specialConditions;
-
-    @Formula(value = "select pf.product_feedback_id from product_feedback pf where pf.client_id = id")
-    private Set<Long> productFeedbacks;
+//
+//    @Formula(value = "select co.core_order_id from core_order co where co.client_id = id")
+//    private Set<Long> coreOrders;
+//
+//    @Formula(value = "select csc.special_condition_id from client_special_condition csc where csc.client_id = id")
+//    private Set<Long> specialConditions;
+//
+//    @Formula(value = "select pf.product_feedback_id from product_feedback pf where pf.client_id = id")
+//    private Set<Long> productFeedbacks;
 
     @Override
     public boolean equals(Object o) {

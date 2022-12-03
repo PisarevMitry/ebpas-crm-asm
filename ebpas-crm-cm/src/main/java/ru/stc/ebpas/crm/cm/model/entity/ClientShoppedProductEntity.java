@@ -41,9 +41,6 @@ public class ClientShoppedProductEntity extends DefaultSystemAttributes implemen
     @JoinColumn(name = "client_id", referencedColumnName = "client_id", nullable = false)
     private ClientEntity client;
 
-    @Column(name = "available_product_id")
-    private Long availableProduct;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

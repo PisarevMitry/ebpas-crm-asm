@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.stc.ebpas.crm.pm.model.dto.AvailableProductDto;
+import ru.stc.ebpas.crm.pm.model.dto.ChangeProductQuantityRequestDto;
 import ru.stc.ebpas.crm.pm.service.api.AvailableProductService;
 
 import java.util.List;
@@ -25,6 +26,12 @@ import java.util.List;
 public class AvailableProductController {
 
     private final AvailableProductService availableProductService;
+
+    @Operation(summary = "Изменить количество товара на основании прихода/расхода/перемещения")
+    @PostMapping("/change-product-quantity")
+    public void changeProductQuantity(@RequestBody ChangeProductQuantityRequestDto changeProductQuantityRequest) {
+        availableProductService.changeProductQuantity(changeProductQuantityRequest);
+    }
 
     @Operation(summary = "Получить по идентификатору")
     @GetMapping("/{id}")
@@ -91,7 +98,6 @@ public class AvailableProductController {
     public void delete(@RequestBody List<Long> id) {
         availableProductService.delete(id);
     }
-
 
 
 }

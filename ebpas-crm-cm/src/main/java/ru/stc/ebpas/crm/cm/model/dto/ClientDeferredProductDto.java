@@ -12,10 +12,6 @@ public class ClientDeferredProductDto implements ComplexDatabaseDto {
 
     private ClientDeferredProductKey clientDeferredProductKey;
 
-    private ClientDto client;
-
-    private Long availableProduct;
-
     @Override
     public CompositeKey getId() {
         return clientDeferredProductKey;

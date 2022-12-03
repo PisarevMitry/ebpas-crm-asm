@@ -1,3 +1,8 @@
+server:
+    servlet:
+        context-path: /ebpas-crm-pm
+    port: 8081
+
 logging:
     level:
         ru.stc.ebpas: DEBUG
@@ -7,8 +12,7 @@ logging:
             %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint}
             %clr([%15.15t] [processId-%X{processId}]){faint} %clr(%-40.40logger{39}){cyan}
             %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'
-server:
-    port: 8081
+
 spring:
     datasource:
         password: postgres
@@ -29,14 +33,14 @@ springdoc:
     show-actuator: true
 
 
-kafka:
-    bootstrapServers: localhost:9092
-    consumer:
-        groupId: ebpas-crm-pm-consumer-group
-        topicName:
-            wmCrmSaveProduct: wmCrmSaveProduct
-    maxRetries: 3
-    processDefinition:
-        concurrency: 3
-    topicNames:
-        mainRouterTopic: main_router_topic
+#kafka:
+#    bootstrapServers: localhost:9092
+#    consumer:
+#        groupId: ebpas-crm-pm-consumer-group
+#        topicName:
+#            wmCrmSaveProduct: wmCrmSaveProduct
+#    maxRetries: 3
+#    processDefinition:
+#        concurrency: 3
+#    topicNames:
+#        mainRouterTopic: main_router_topic

@@ -12,7 +12,7 @@ public class ClientPaymentMethodDto implements SimpleDatabaseDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private ClientDto client;
+    private Long client;
 
     private Long paymentType;
 

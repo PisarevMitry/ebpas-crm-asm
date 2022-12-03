@@ -13,10 +13,6 @@ public class ClientShoppedProductDto implements ComplexDatabaseDto {
 
     private ClientShoppedProductKey clientShoppedProductKey;
 
-    private ClientDto client;
-
-    private Long availableProduct;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Integer amountTotal;
 

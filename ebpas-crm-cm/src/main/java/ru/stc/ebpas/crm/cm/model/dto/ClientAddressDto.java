@@ -13,7 +13,7 @@ public class ClientAddressDto implements SimpleDatabaseDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
-    private ClientDto client;
+    private Long client;
 
     private NsiAddressDto nsiAddress;
 

@@ -39,10 +39,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
 
         <!--   Внутренние зависимости -->
         <dependency>
@@ -52,10 +48,6 @@
         <dependency>
             <groupId>ru.stc</groupId>
             <artifactId>ebpas-common-data-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ru.stc</groupId>
-            <artifactId>ebpas-common-api-internal-core</artifactId>
         </dependency>
 
         <!--   Зависимости инструментов работы с БД -->

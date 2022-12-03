@@ -46,7 +46,7 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     @SequenceGenerator(name = "product_seq_gen", sequenceName = "product_seq", allocationSize = 1)
     private Long id;
 
-    @Column(name = "product_nomenclature")
+    @Column(name = "product_nomenclature", nullable = false)
     private String nomenclature;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -60,8 +60,8 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
 //    @JdbcTypeCode(SqlTypes.JSON)
 //    private Map<String, String> options;
 
-    @Column(name = "blocked_status")
-    private Boolean blocked;
+    @Column(name = "blocked_status", nullable = false)
+    private Boolean blocked = false;
 
     @OneToMany(mappedBy = "product")
     private Set<AvailableProductEntity> availableProducts;

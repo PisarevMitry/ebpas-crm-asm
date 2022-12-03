@@ -7,6 +7,7 @@ import ru.stc.ebpas.common.data.core.repository.SimpleModelRepository;
 import ru.stc.ebpas.common.data.core.service.AbstractSimpleModelDefaultService;
 import ru.stc.ebpas.crm.pm.mapper.api.ProductModelMapper;
 import ru.stc.ebpas.crm.pm.model.dto.ProductDto;
+import ru.stc.ebpas.crm.pm.model.dto.ProjectProductDto;
 import ru.stc.ebpas.crm.pm.model.entity.ProductEntity;
 import ru.stc.ebpas.crm.pm.repository.ProductRepository;
 import ru.stc.ebpas.crm.pm.service.api.ProductService;
@@ -29,6 +30,13 @@ public class ProductServiceImpl
     @Override
     public SimpleModelRepository<ProductEntity> getRepository() {
         return productRepository;
+    }
+
+    @Override
+    public ProductDto save(ProjectProductDto projectProduct) {
+        ProductEntity product = productModelMapper.map(projectProduct);
+        ProductEntity savedProduct = productRepository.save(product);
+        return productModelMapper.toDto(savedProduct);
     }
 }
 

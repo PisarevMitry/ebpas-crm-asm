@@ -14,10 +14,6 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -39,12 +35,6 @@ public class ClientOrderedProductEntity extends DefaultSystemAttributes implemen
 
     @Column(name = "price_unit")
     private Long priceUnit;
-
-    @Column(name = "assembly_details_id")
-    private Long assemblyDetails;
-
-    @Column(name = "available_product_id")
-    private Long availableProduct;
 
     @Override
     public boolean equals(Object o) {

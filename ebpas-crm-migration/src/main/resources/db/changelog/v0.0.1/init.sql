@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS product
     blocked_status       BOOLEAN     DEFAULT FALSE    NOT NULL,
     description          TEXT,
     option               JSONB,
-    core_product_id      BIGINT                       NOT NULL,
+    core_product_id      BIGINT,
     create_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
     modify_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
     action_ind           VARCHAR     DEFAULT 'INSERT' NOT NULL,

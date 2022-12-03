@@ -13,10 +13,6 @@ public class ClientOrderedProductDto implements ComplexDatabaseDto {
 
     private ClientOrderedProductKey clientOrderedProductKey;
 
-    private Long assemblyDetails;
-
-    private Long availableProduct;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Integer amountTotal;
 

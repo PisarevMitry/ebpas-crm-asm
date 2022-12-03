@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.stc.ebpas.crm.pm.model.dto.ProductDto;
+import ru.stc.ebpas.crm.pm.model.dto.ProjectProductDto;
 import ru.stc.ebpas.crm.pm.service.api.ProductService;
 
 import java.util.List;
@@ -57,11 +58,11 @@ public class ProductController {
         return null;
     }
 
-    @Operation(summary = "Получить список товаров по фильтру поиска постранично")
-    @GetMapping("/special-condition")
-    public Page<ProductDto> getByFilter(@RequestParam Long specialConditionId, Pageable pageable) {
-        return null;
-    }
+//    @Operation(summary = "Получить список товаров по фильтру поиска постранично")
+//    @GetMapping("/special-condition")
+//    public Page<ProductDto> getByFilter(@RequestParam Long specialConditionId, Pageable pageable) {
+//        return null;
+//    }
 
     @Operation(summary = "Обновить товар")
     @PutMapping
@@ -80,4 +81,12 @@ public class ProductController {
     public void delete(@PathVariable Long id) {
         productService.delete(id);
     }
+
+
+    @Operation(summary = "Сохранить проект товара")
+    @PostMapping("/project")
+    public ProductDto save(@RequestBody ProjectProductDto dto) {
+        return productService.save(dto);
+    }
+
 }

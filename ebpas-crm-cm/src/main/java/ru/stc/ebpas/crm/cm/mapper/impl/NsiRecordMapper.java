@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.mapstruct.TargetType;
 import org.springframework.stereotype.Component;
 import ru.stc.ebpas.common.core.model.entity.nsi.NsiRecordDto;
-import ru.stc.ebpas.crm.cm.feign.api.NsiFeignClient;
+import ru.stc.ebpas.crm.cm.api.external.NsiFeignClient;
 
 @AllArgsConstructor
 @Component
