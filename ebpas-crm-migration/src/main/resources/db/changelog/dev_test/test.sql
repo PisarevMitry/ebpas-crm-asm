@@ -39,13 +39,29 @@ FROM array(SELECT c.column_name
              AND pk.table_name = 'store'
              AND pk.constraint_type = 'PRIMARY KEY');
 
-
-
 INSERT INTO product ("blocked_status", "description", "core_product_id")
 VALUES (FALSE, NULL, 43);
 
+select p.product_nomenclature, (count(*) - count(dp.product_id)) as "count"
+from core_order co
+         left join client_ordered_product cop on co.assembly_details_id = cop.assembly_details_id
+         left join available_product ap on cop.available_product_id = ap.available_product_id
+         left join product p on ap.product_id = p.product_id
+         left join return_details rd on co.return_details_id = rd.return_details_id
+         left join defective_product dp on rd.return_details_id = dp.return_details_id
+where ap.store_id = 13
+group by p.product_nomenclature
+order by count desc;
 
-select specialcon0_.special_condition_details_id as special_1_16_0_,
-       specialcon0_.special_conditions           as special_2_16_0_
-from store_special_condition specialcon0_
-where specialcon0_.special_condition_details_id=?
+
+
+delete
+from core_order
+where core_order_id = 1;
+
+select *
+from core_order
+where core_order_id in (1, 2, 3, 4)
+
+
+
