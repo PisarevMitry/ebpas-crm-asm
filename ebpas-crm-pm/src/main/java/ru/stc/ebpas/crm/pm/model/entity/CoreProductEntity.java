@@ -20,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -50,6 +51,14 @@ public class CoreProductEntity extends DefaultSystemAttributes implements Serial
 
     @OneToMany(mappedBy = "coreProduct")
     private Set<ProductEntity> products;
+
+    public void addProduct(ProductEntity product) {
+        if (this.products == null) {
+            this.products = new HashSet<>();
+        }
+        product.setCoreProduct(this);
+        this.products.add(product);
+    }
 
     @Override
     public boolean equals(Object o) {

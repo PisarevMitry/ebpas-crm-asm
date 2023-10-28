@@ -28,6 +28,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -79,7 +80,7 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     private Set<ProductCategoryEntity> categories;
 
     @OneToMany(mappedBy = "product")
-    private Set<ProductFeedbackEntity> feedbacks;
+    private Set<FeedbackEntity> feedbacks;
 
     @OneToMany(mappedBy = "product")
     private Set<ProductPhotoEntity> photos;
@@ -88,6 +89,30 @@ public class ProductEntity extends DefaultSystemAttributes implements Serializab
     @CollectionTable(name = "product_special_condition", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "special_condition_details_id")
     private Set<Long> specialConditions;
+
+    public void addAvailableProduct(AvailableProductEntity availableProduct) {
+        if (this.availableProducts == null) {
+            this.availableProducts = new HashSet<>();
+        }
+        availableProduct.setProduct(this);
+        this.availableProducts.add(availableProduct);
+    }
+
+    public void addFeedback(FeedbackEntity feedback) {
+        if (this.feedbacks == null) {
+            this.feedbacks = new HashSet<>();
+        }
+        feedback.setProduct(this);
+        this.feedbacks.add(feedback);
+    }
+
+    public void addPhoto(ProductPhotoEntity productPhoto) {
+        if (this.photos == null) {
+            this.photos = new HashSet<>();
+        }
+        productPhoto.setProduct(this);
+        this.photos.add(productPhoto);
+    }
 
     @Override
     public boolean equals(Object o) {

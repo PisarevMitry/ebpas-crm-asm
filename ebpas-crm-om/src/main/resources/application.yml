@@ -8,7 +8,7 @@ logging:
             %clr([%15.15t] [processId-%X{processId}]){faint} %clr(%-40.40logger{39}){cyan}
             %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}'
 server:
-  port: 8081
+  port: 8083
 spring:
   datasource:
     password: postgres

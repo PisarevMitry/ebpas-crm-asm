@@ -14,6 +14,4 @@ public class ProductPhotoDto implements SimpleDatabaseDto {
     private Long id;
 
     private NsiMediaDto nsiMedia;
-
-    private Long product;
 }

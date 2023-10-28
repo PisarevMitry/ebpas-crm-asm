@@ -19,7 +19,7 @@ public class ProcessManagementAspectService {
      **/
     @Around(
             value = "execution(* ru.stc.ebpas.crm.pm.controller.AvailableProductController." +
-                    "changeProductQuantity(..)) && args(changeProductQuantityRequest)",
+                    "changeProductQuantity(..)) && args(*, changeProductQuantityRequest)",
             argNames = "joinPoint, changeProductQuantityRequest")
     public Object executePulVerificationProcess(ProceedingJoinPoint joinPoint,
                                                 ChangeProductQuantityRequestDto changeProductQuantityRequest) {

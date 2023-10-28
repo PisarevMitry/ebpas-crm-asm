@@ -26,6 +26,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -63,6 +64,14 @@ public class ProductCategoryEntity extends DefaultSystemAttributes implements Se
 
     @OneToMany(mappedBy = "parentProductCategory")
     private Set<ProductCategoryEntity> childProductCategories;
+
+    public void addChildProductCategory(ProductCategoryEntity productCategory) {
+        if (this.childProductCategories == null) {
+            this.childProductCategories = new HashSet<>();
+        }
+        productCategory.setParentProductCategory(this);
+        this.childProductCategories.add(productCategory);
+    }
 
     @Override
     public boolean equals(Object o) {

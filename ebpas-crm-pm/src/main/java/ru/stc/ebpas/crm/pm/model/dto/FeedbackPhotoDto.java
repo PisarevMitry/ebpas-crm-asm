@@ -14,6 +14,4 @@ public class FeedbackPhotoDto implements SimpleDatabaseDto {
     private Long id;
 
     private NsiMediaDto nsiMedia;
-
-    private Long productFeedback;
 }

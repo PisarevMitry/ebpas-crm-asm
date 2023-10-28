@@ -12,6 +12,7 @@ import java.util.Set;
 public class AvailableProductDto implements SimpleDatabaseDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     private Long product;

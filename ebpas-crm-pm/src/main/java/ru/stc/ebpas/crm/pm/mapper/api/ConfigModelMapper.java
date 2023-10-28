@@ -14,6 +14,6 @@ import ru.stc.ebpas.crm.pm.mapper.impl.ReferenceMapper;
                 NsiRecordMapper.class,
                 DateTimeMapper.class},
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-        collectionMappingStrategy = CollectionMappingStrategy.TARGET_IMMUTABLE)
+        collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
 public interface ConfigModelMapper {
 }

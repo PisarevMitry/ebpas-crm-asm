@@ -41,7 +41,7 @@ public class FeedbackPhotoEntity extends DefaultSystemAttributes implements Seri
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_feedback_id", referencedColumnName = "product_feedback_id", nullable = false)
-    private ProductFeedbackEntity productFeedback;
+    private FeedbackEntity productFeedback;
 
     @Column(name = "nsi_media_id")
     private Long nsiMediaId;

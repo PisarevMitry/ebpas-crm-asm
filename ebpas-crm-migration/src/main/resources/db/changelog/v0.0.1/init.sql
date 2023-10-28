@@ -63,31 +63,9 @@ ALTER TABLE IF EXISTS delivery_details
     ADD CONSTRAINT payment_details_delivery_method_fkey
         FOREIGN KEY (delivery_method_id) REFERENCES delivery_method;
 
-CREATE SEQUENCE IF NOT EXISTS organization_info_seq;
 
-CREATE TABLE IF NOT EXISTS organization_info
-(
-    organization_info_id BIGINT                       NOT NULL DEFAULT nextval('organization_info_seq'),
-    create_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    modify_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    action_ind           VARCHAR     DEFAULT 'INSERT' NOT NULL,
-    CONSTRAINT organization_info_pkey
-        PRIMARY KEY (organization_info_id)
-);
 
-CREATE SEQUENCE IF NOT EXISTS payment_method_seq;
 
-CREATE TABLE IF NOT EXISTS payment_method
-(
-    payment_method_id BIGINT                       NOT NULL DEFAULT nextval('payment_method_seq'),
-    method_name       VARCHAR,
-    system_details    BYTEA,
-    create_dttm       TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    modify_dttm       TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    action_ind        VARCHAR     DEFAULT 'INSERT' NOT NULL,
-    CONSTRAINT payment_method_pkey
-        PRIMARY KEY (payment_method_id)
-);
 
 CREATE SEQUENCE IF NOT EXISTS payment_details_seq;
 
@@ -364,24 +342,6 @@ ALTER TABLE IF EXISTS available_product_special_condition
     ADD CONSTRAINT available_product_special_condition_available_product_fkey
         FOREIGN KEY (available_product_id) REFERENCES available_product;
 
-CREATE TABLE IF NOT EXISTS client_ordered_product
-(
-    assembly_details_id  BIGINT                       NOT NULL,
-    available_product_id BIGINT                       NOT NULL,
-    amount_total         INTEGER,
-    price_unit           BIGINT,
-    create_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    modify_dttm          TIMESTAMPTZ DEFAULT now()    NOT NULL,
-    action_ind           VARCHAR     DEFAULT 'INSERT' NOT NULL,
-    CONSTRAINT client_ordered_product_pkey
-        PRIMARY KEY (assembly_details_id, available_product_id)
-);
-
-ALTER TABLE IF EXISTS client_ordered_product
-    ADD CONSTRAINT client_ordered_product_assembly_details_fkey
-        FOREIGN KEY (assembly_details_id) REFERENCES assembly_details,
-    ADD CONSTRAINT client_ordered_product_available_product_fkey
-        FOREIGN KEY (available_product_id) REFERENCES available_product;
 
 CREATE TABLE IF NOT EXISTS store_special_condition
 (

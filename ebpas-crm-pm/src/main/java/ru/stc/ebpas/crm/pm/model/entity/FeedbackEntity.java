@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -33,7 +34,7 @@ import java.util.Set;
 @Entity
 @Table(name = "product_feedback")
 @EntityListeners(AuditingEntityListener.class)
-public class ProductFeedbackEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
+public class FeedbackEntity extends DefaultSystemAttributes implements Serializable, SimpleDatabaseEntity {
 
     @Id
     @Column(name = "product_feedback_id")
@@ -57,6 +58,14 @@ public class ProductFeedbackEntity extends DefaultSystemAttributes implements Se
     @OneToMany(mappedBy = "productFeedback")
     private Set<FeedbackPhotoEntity> photos;
 
+    public void addPhoto(FeedbackPhotoEntity feedbackPhoto) {
+        if (this.photos == null) {
+            this.photos = new HashSet<>();
+        }
+        feedbackPhoto.setProductFeedback(this);
+        this.photos.add(feedbackPhoto);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -65,7 +74,7 @@ public class ProductFeedbackEntity extends DefaultSystemAttributes implements Se
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
             return false;
         }
-        ProductFeedbackEntity that = (ProductFeedbackEntity) o;
+        FeedbackEntity that = (FeedbackEntity) o;
         return id != null && id.equals(that.id);
     }
 

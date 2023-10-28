@@ -41,7 +41,7 @@ public class AvailableProductServiceImpl
     }
 
     @Override
-    public void changeProductQuantity(ChangeProductQuantityRequestDto changeProductQuantityRequest) {
+    public void changeProductQuantity(Long productId, ChangeProductQuantityRequestDto changeProductQuantityRequest) {
         if (changeProductQuantityRequest.getSenderStoreId() != null && changeProductQuantityRequest.getRecipientStoreId() != null) {
             StoreDto senderStore = storeService.getById(changeProductQuantityRequest.getSenderStoreId());
             AvailableProductEntity availableProductDiv =

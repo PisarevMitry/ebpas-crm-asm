@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -60,6 +61,14 @@ public class StoreEntity extends DefaultSystemAttributes implements Serializable
     @CollectionTable(name = "store_special_condition", joinColumns = @JoinColumn(name = "store_id"))
     @Column(name = "special_condition_details_id")
     private Set<Long> specialConditions;
+
+    public void addAvailableProduct(AvailableProductEntity availableProduct) {
+        if (this.availableProducts == null) {
+            this.availableProducts = new HashSet<>();
+        }
+        availableProduct.setStore(this);
+        this.availableProducts.add(availableProduct);
+    }
 
     @Override
     public boolean equals(Object o) {

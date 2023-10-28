@@ -6,5 +6,5 @@ import ru.stc.ebpas.crm.pm.model.dto.ChangeProductQuantityRequestDto;
 
 public interface AvailableProductService extends SimpleModelDefaultService<AvailableProductDto> {
 
-    void changeProductQuantity(ChangeProductQuantityRequestDto changeProductQuantityRequest);
+    void changeProductQuantity(Long productId, ChangeProductQuantityRequestDto changeProductQuantityRequest);
 }
